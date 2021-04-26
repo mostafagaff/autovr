@@ -7,36 +7,28 @@
             canvas {width: 100%; height: 100%;};
         </style>
     </head>
-
-    <body>
+<body data-new-gr-c-s-check-loaded="14.993.0" data-gr-ext-installed="">
         <script src="js/three.js"></script>
         <script src="js/OrbitControls.js"></script>
         <script src="js/GLTFLoader.js"></script>
         <script src="js/ObjectLoader.js"></script>
-        <script src="js/TransformControls.js"></script>
         
 
        
         <script>
         
             const scene = new THREE.Scene();
-            //scene.background = new THREE.Color( 0xbfe3dd );
-
             //scene.background = new THREE.Color(0xdddddd);
 
             //const camera = new THREE.PerspectiveCamera(75 , window.innerWidth / window.innerHeight,0.1 ,1000 );
             camera = new THREE.PerspectiveCamera(8,window.innerWidth/window.innerHeight,1,5000);
-            //camera.lookAt(car);
-           // camera.rotation.y = 45/180*Math.PI;
+            camera.rotation.y = 45/180*Math.PI;
             // camera.rotation.x = 45/180*Math.PI;
             // camera.rotation.z = 45/180*Math.PI;
-            camera.position.set(3,1,2.5);
-          
 
-
-            // camera.position.x = 1000;
-            // camera.position.y = 100;
-            // camera.position.z = 1000;
+            camera.position.x = 1000;
+            camera.position.y = 100;
+            camera.position.z = 1000;
 
             renderer = new THREE.WebGLRenderer({antialias:true});
             //const renderer = new THREE.WebGLRenderer();
@@ -81,22 +73,6 @@
 
             //AddControl
             controls = new THREE.OrbitControls(camera,renderer.domElement);
-           
-			controls.update();
-			
-            
-
-            controls.enablePan = false;
-			controls.enableDamping = true;
-            // controls.dampingFactor = 0.07;
-            // controls.rotateSpeed = 0.07;
-            // controls.enableZoom = true;
-            // controls.screenSpacePanning = true;
-            //controls.minDistance = 250;
-            //controls.maxDistance = 350;
-           // controls.minPolarAngle = 1.2;
-           // controls.maxPolarAngle = 1.2;
-
             //controls.addEventListener('change', renderer);
 
             // // Add3D_Model_(ObjectLoader)
@@ -111,10 +87,6 @@
             // }  
             // )
 
-            
-
-
-
 
 
 
@@ -125,8 +97,7 @@
             loader.load('free_1972_datsun_240k_gt/scene.gltf', function(gltf)
             {
                 car = gltf.scene.children[0];
-                car.scale.set(0.1,0.1,0.1);
-                car.position.set(1.65,1.25,0.2);
+                car.scale.set(10,10,10);
                 scene.add(gltf.scene);
                 GameLoop();
             });
@@ -175,6 +146,7 @@
 
 
 
-        </script>
-    </body>
+        </script><canvas width="1440" height="789" style="display: block; width: 1440px; height: 789px;"></canvas>
+    
+</body>     
 </html>
